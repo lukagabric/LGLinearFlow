@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="collectionView" destination="war-7u-Akq" id="ilE-zt-1BV"/>
+                <outlet property="nextButton" destination="5Cg-gI-Aht" id="2eM-8c-nlI"/>
+                <outlet property="pageControl" destination="RsX-wT-abX" id="WKG-j4-9lx"/>
+                <outlet property="previousButton" destination="cEG-ir-cbx" id="H67-MN-MGn"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eT6-E5-vUh" userLabel="CollectionContentView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="war-7u-Akq">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="l2b-aZ-EJ6">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="07K-uC-mWb"/>
+                                <outlet property="delegate" destination="-1" id="IBd-Vl-9NS"/>
+                            </connections>
+                        </collectionView>
+                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="RsX-wT-abX">
+                            <rect key="frame" x="280" y="213" width="39" height="37"/>
+                            <connections>
+                                <action selector="pageControlValueChanged:" destination="-1" eventType="valueChanged" id="WqZ-MH-EMJ"/>
+                            </connections>
+                        </pageControl>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9G-rY-yGy" userLabel="Next Button Container View">
+                            <rect key="frame" x="540" y="0.0" width="60" height="250"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cg-gI-Aht" userLabel="Next Button">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="250"/>
+                                    <state key="normal" image="arrow-right.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="nextButtonAction:" destination="-1" eventType="touchUpInside" id="sIf-zU-SoQ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="5Cg-gI-Aht" secondAttribute="trailing" id="4Yy-Ro-i1p"/>
+                                <constraint firstAttribute="bottom" secondItem="5Cg-gI-Aht" secondAttribute="bottom" id="Kmd-X9-7w6"/>
+                                <constraint firstAttribute="width" constant="60" id="fHw-Gj-ahh"/>
+                                <constraint firstItem="5Cg-gI-Aht" firstAttribute="top" secondItem="f9G-rY-yGy" secondAttribute="top" id="lfx-HD-AR9"/>
+                                <constraint firstItem="5Cg-gI-Aht" firstAttribute="leading" secondItem="f9G-rY-yGy" secondAttribute="leading" id="q1H-8b-q4L"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IiG-oB-5yt" userLabel="Previous Button Container View">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="250"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-ir-cbx" userLabel="Previous Button">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="250"/>
+                                    <state key="normal" image="arrow-left.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="previousButtonAction:" destination="-1" eventType="touchUpInside" id="Skt-v3-jDo"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="CXH-MC-i9F"/>
+                                <constraint firstItem="cEG-ir-cbx" firstAttribute="leading" secondItem="IiG-oB-5yt" secondAttribute="leading" id="RUS-vT-lWA"/>
+                                <constraint firstAttribute="bottom" secondItem="cEG-ir-cbx" secondAttribute="bottom" id="dZR-5R-a8N"/>
+                                <constraint firstItem="cEG-ir-cbx" firstAttribute="top" secondItem="IiG-oB-5yt" secondAttribute="top" id="sN5-q1-IeL"/>
+                                <constraint firstAttribute="trailing" secondItem="cEG-ir-cbx" secondAttribute="trailing" id="xa1-EB-uoa"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.68400804924242431" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="19e-PL-z5V"/>
+                        <constraint firstAttribute="bottom" secondItem="war-7u-Akq" secondAttribute="bottom" id="3ha-Cg-2hm"/>
+                        <constraint firstItem="f9G-rY-yGy" firstAttribute="top" secondItem="eT6-E5-vUh" secondAttribute="top" id="7Zq-8P-L6a"/>
+                        <constraint firstAttribute="centerX" secondItem="RsX-wT-abX" secondAttribute="centerX" id="AmV-Zi-uvd"/>
+                        <constraint firstAttribute="bottom" secondItem="RsX-wT-abX" secondAttribute="bottom" id="JVF-5N-3kz"/>
+                        <constraint firstAttribute="bottom" secondItem="f9G-rY-yGy" secondAttribute="bottom" id="OGs-0k-HSb"/>
+                        <constraint firstAttribute="bottom" secondItem="IiG-oB-5yt" secondAttribute="bottom" id="ONw-Oe-0gi"/>
+                        <constraint firstItem="war-7u-Akq" firstAttribute="top" secondItem="eT6-E5-vUh" secondAttribute="top" id="Q1F-M4-KKf"/>
+                        <constraint firstAttribute="trailing" secondItem="f9G-rY-yGy" secondAttribute="trailing" id="Tum-42-erA"/>
+                        <constraint firstItem="IiG-oB-5yt" firstAttribute="leading" secondItem="eT6-E5-vUh" secondAttribute="leading" id="eOH-mb-ybi"/>
+                        <constraint firstItem="war-7u-Akq" firstAttribute="leading" secondItem="eT6-E5-vUh" secondAttribute="leading" id="oBw-TY-ljL"/>
+                        <constraint firstAttribute="trailing" secondItem="war-7u-Akq" secondAttribute="trailing" id="tZx-Ck-J3b"/>
+                        <constraint firstItem="IiG-oB-5yt" firstAttribute="top" secondItem="eT6-E5-vUh" secondAttribute="top" id="ydb-5l-Fe1"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.79874246162280704" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="eT6-E5-vUh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Par-EY-SfP"/>
+                <constraint firstAttribute="trailing" secondItem="eT6-E5-vUh" secondAttribute="trailing" id="QQd-Ew-hs2"/>
+                <constraint firstItem="eT6-E5-vUh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iBn-AD-2x5"/>
+            </constraints>
+            <point key="canvasLocation" x="473" y="301"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow-left.png" width="60" height="60"/>
+        <image name="arrow-right.png" width="60" height="60"/>
+    </resources>
+</document>
