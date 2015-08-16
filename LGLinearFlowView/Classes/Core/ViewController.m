@@ -27,8 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataSource = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10"];
-    
+    [self configureDataSource];
     [self configureCollectionView];
     [self configurePageControl];
     [self configureButtons];
@@ -41,6 +40,14 @@
     self.collectionViewLayout = [RHHorizontalLinearFlowLayout layoutConfiguredWithCollectionView:self.collectionView
                                                                                         itemSize:CGSizeMake(180, 180)
                                                                               minimumLineSpacing:0];
+}
+
+- (void)configureDataSource {
+    NSMutableArray *datasource = [NSMutableArray new];
+    for (NSUInteger i = 0; i < 10; i++) {
+        [datasource addObject:[NSString stringWithFormat:@"Page %ld", i]];
+    }
+    self.dataSource = datasource;
 }
 
 - (void)configurePageControl {
@@ -86,7 +93,7 @@
     CollectionViewCell *cell =
     (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCell"
                                                                     forIndexPath:indexPath];
-    cell.pageLabel.text = [NSString stringWithFormat:@"Page %@", @(indexPath.row + 1)];
+    cell.pageLabel.text = self.dataSource[indexPath.row];
     return cell;
 }
 
