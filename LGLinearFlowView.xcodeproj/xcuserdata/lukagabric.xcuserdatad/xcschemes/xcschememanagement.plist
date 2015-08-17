@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>LGLinearFlowViewSwift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>410A6EA61B80C42E009D9AE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>41E9FE731B7E9C22001F665B</key>
 		<dict>
 			<key>primary</key>

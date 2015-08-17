@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410A6EB11B80C42E009D9AE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410A6EB01B80C42E009D9AE5 /* Assets.xcassets */; };
+		410A6EB41B80C42E009D9AE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410A6EB21B80C42E009D9AE5 /* LaunchScreen.storyboard */; };
+		410A6EBC1B80C48E009D9AE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A6EBA1B80C48E009D9AE5 /* AppDelegate.swift */; };
+		410A6EBD1B80C48E009D9AE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A6EBB1B80C48E009D9AE5 /* ViewController.swift */; };
+		410A6EBF1B80C6BE009D9AE5 /* LGHorizontalLinearFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A6EBE1B80C6BE009D9AE5 /* LGHorizontalLinearFlowLayout.swift */; };
+		410A6EC11B80C6E3009D9AE5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A6EC01B80C6E3009D9AE5 /* CollectionViewCell.swift */; };
+		410A6EC31B812A24009D9AE5 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410A6EC21B812A24009D9AE5 /* CollectionViewCell.xib */; };
+		410A6EC51B812C63009D9AE5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410A6EC41B812C63009D9AE5 /* ViewController.xib */; };
+		410A6EC61B812F7F009D9AE5 /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E9FEB61B7E9FFC001F665B /* arrow-left.png */; };
+		410A6EC71B812F7F009D9AE5 /* arrow-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E9FEB71B7E9FFC001F665B /* arrow-left@2x.png */; };
+		410A6EC81B812F7F009D9AE5 /* arrow-left@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E9FEB81B7E9FFC001F665B /* arrow-left@3x.png */; };
+		410A6EC91B812F7F009D9AE5 /* arrow-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E9FEB91B7E9FFC001F665B /* arrow-right.png */; };
+		410A6ECA1B812F7F009D9AE5 /* arrow-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E9FEBA1B7E9FFC001F665B /* arrow-right@2x.png */; };
+		410A6ECB1B812F7F009D9AE5 /* arrow-right@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E9FEBB1B7E9FFC001F665B /* arrow-right@3x.png */; };
 		41E9FE7A1B7E9C22001F665B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E9FE791B7E9C22001F665B /* main.m */; };
 		41E9FE851B7E9C22001F665B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E9FE841B7E9C22001F665B /* Images.xcassets */; };
 		41E9FE881B7E9C22001F665B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E9FE861B7E9C22001F665B /* LaunchScreen.xib */; };
 		41E9FE941B7E9C22001F665B /* LGLinearFlowViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E9FE931B7E9C22001F665B /* LGLinearFlowViewTests.m */; };
 		41E9FEA41B7E9C55001F665B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E9FEA11B7E9C55001F665B /* AppDelegate.m */; };
-		41E9FEA91B7E9C80001F665B /* RHHorizontalLinearFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E9FEA81B7E9C80001F665B /* RHHorizontalLinearFlowLayout.m */; };
+		41E9FEA91B7E9C80001F665B /* LGHorizontalLinearFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E9FEA81B7E9C80001F665B /* LGHorizontalLinearFlowLayout.m */; };
 		41E9FEAD1B7E9CC6001F665B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E9FEAC1B7E9CC6001F665B /* ViewController.m */; };
 		41E9FEAF1B7E9CDF001F665B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E9FEAE1B7E9CDF001F665B /* ViewController.xib */; };
 		41E9FEB21B7E9E1B001F665B /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E9FEB11B7E9E1B001F665B /* CollectionViewCell.m */; };
@@ -36,6 +50,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		410A6EA71B80C42E009D9AE5 /* LGLinearFlowViewSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LGLinearFlowViewSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		410A6EB01B80C42E009D9AE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		410A6EB31B80C42E009D9AE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		410A6EB51B80C42E009D9AE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		410A6EBA1B80C48E009D9AE5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		410A6EBB1B80C48E009D9AE5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		410A6EBE1B80C6BE009D9AE5 /* LGHorizontalLinearFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGHorizontalLinearFlowLayout.swift; sourceTree = "<group>"; };
+		410A6EC01B80C6E3009D9AE5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		410A6EC21B812A24009D9AE5 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		410A6EC41B812C63009D9AE5 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		41E9FE741B7E9C22001F665B /* LGLinearFlowView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LGLinearFlowView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E9FE781B7E9C22001F665B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41E9FE791B7E9C22001F665B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,8 +70,8 @@
 		41E9FE931B7E9C22001F665B /* LGLinearFlowViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGLinearFlowViewTests.m; sourceTree = "<group>"; };
 		41E9FEA01B7E9C55001F665B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		41E9FEA11B7E9C55001F665B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		41E9FEA71B7E9C80001F665B /* RHHorizontalLinearFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHHorizontalLinearFlowLayout.h; sourceTree = "<group>"; };
-		41E9FEA81B7E9C80001F665B /* RHHorizontalLinearFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHHorizontalLinearFlowLayout.m; sourceTree = "<group>"; };
+		41E9FEA71B7E9C80001F665B /* LGHorizontalLinearFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGHorizontalLinearFlowLayout.h; sourceTree = "<group>"; };
+		41E9FEA81B7E9C80001F665B /* LGHorizontalLinearFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGHorizontalLinearFlowLayout.m; sourceTree = "<group>"; };
 		41E9FEAB1B7E9CC6001F665B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		41E9FEAC1B7E9CC6001F665B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		41E9FEAE1B7E9CDF001F665B /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
@@ -63,6 +87,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		410A6EA41B80C42E009D9AE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41E9FE711B7E9C22001F665B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,11 +111,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		410A6EA81B80C42E009D9AE5 /* LGLinearFlowViewSwift */ = {
+			isa = PBXGroup;
+			children = (
+				410A6EB91B80C48E009D9AE5 /* Classes */,
+				410A6EB01B80C42E009D9AE5 /* Assets.xcassets */,
+				410A6EB21B80C42E009D9AE5 /* LaunchScreen.storyboard */,
+				410A6EB51B80C42E009D9AE5 /* Info.plist */,
+			);
+			path = LGLinearFlowViewSwift;
+			sourceTree = "<group>";
+		};
+		410A6EB91B80C48E009D9AE5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				410A6EBA1B80C48E009D9AE5 /* AppDelegate.swift */,
+				410A6EBB1B80C48E009D9AE5 /* ViewController.swift */,
+				410A6EC41B812C63009D9AE5 /* ViewController.xib */,
+				410A6EBE1B80C6BE009D9AE5 /* LGHorizontalLinearFlowLayout.swift */,
+				410A6EC01B80C6E3009D9AE5 /* CollectionViewCell.swift */,
+				410A6EC21B812A24009D9AE5 /* CollectionViewCell.xib */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		41E9FE6B1B7E9C22001F665B = {
 			isa = PBXGroup;
 			children = (
 				41E9FE761B7E9C22001F665B /* LGLinearFlowView */,
 				41E9FE901B7E9C22001F665B /* LGLinearFlowViewTests */,
+				410A6EA81B80C42E009D9AE5 /* LGLinearFlowViewSwift */,
 				41E9FE751B7E9C22001F665B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +150,7 @@
 			children = (
 				41E9FE741B7E9C22001F665B /* LGLinearFlowView.app */,
 				41E9FE8D1B7E9C22001F665B /* LGLinearFlowViewTests.xctest */,
+				410A6EA71B80C42E009D9AE5 /* LGLinearFlowViewSwift.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,8 +205,8 @@
 		41E9FE9E1B7E9C55001F665B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				41E9FEA71B7E9C80001F665B /* RHHorizontalLinearFlowLayout.h */,
-				41E9FEA81B7E9C80001F665B /* RHHorizontalLinearFlowLayout.m */,
+				41E9FEA71B7E9C80001F665B /* LGHorizontalLinearFlowLayout.h */,
+				41E9FEA81B7E9C80001F665B /* LGHorizontalLinearFlowLayout.m */,
 				41E9FEAB1B7E9CC6001F665B /* ViewController.h */,
 				41E9FEAC1B7E9CC6001F665B /* ViewController.m */,
 				41E9FEAE1B7E9CDF001F665B /* ViewController.xib */,
@@ -185,6 +242,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		410A6EA61B80C42E009D9AE5 /* LGLinearFlowViewSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 410A6EB81B80C42E009D9AE5 /* Build configuration list for PBXNativeTarget "LGLinearFlowViewSwift" */;
+			buildPhases = (
+				410A6EA31B80C42E009D9AE5 /* Sources */,
+				410A6EA41B80C42E009D9AE5 /* Frameworks */,
+				410A6EA51B80C42E009D9AE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LGLinearFlowViewSwift;
+			productName = LGLinearFlowViewSwift;
+			productReference = 410A6EA71B80C42E009D9AE5 /* LGLinearFlowViewSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
 		41E9FE731B7E9C22001F665B /* LGLinearFlowView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41E9FE971B7E9C22001F665B /* Build configuration list for PBXNativeTarget "LGLinearFlowView" */;
@@ -229,6 +303,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Luka Gabric";
 				TargetAttributes = {
+					410A6EA61B80C42E009D9AE5 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					41E9FE731B7E9C22001F665B = {
 						CreatedOnToolsVersion = 6.4;
 					};
@@ -253,11 +330,29 @@
 			targets = (
 				41E9FE731B7E9C22001F665B /* LGLinearFlowView */,
 				41E9FE8C1B7E9C22001F665B /* LGLinearFlowViewTests */,
+				410A6EA61B80C42E009D9AE5 /* LGLinearFlowViewSwift */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		410A6EA51B80C42E009D9AE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				410A6EC91B812F7F009D9AE5 /* arrow-right.png in Resources */,
+				410A6EC81B812F7F009D9AE5 /* arrow-left@3x.png in Resources */,
+				410A6EB41B80C42E009D9AE5 /* LaunchScreen.storyboard in Resources */,
+				410A6EC71B812F7F009D9AE5 /* arrow-left@2x.png in Resources */,
+				410A6EB11B80C42E009D9AE5 /* Assets.xcassets in Resources */,
+				410A6EC51B812C63009D9AE5 /* ViewController.xib in Resources */,
+				410A6ECB1B812F7F009D9AE5 /* arrow-right@3x.png in Resources */,
+				410A6ECA1B812F7F009D9AE5 /* arrow-right@2x.png in Resources */,
+				410A6EC61B812F7F009D9AE5 /* arrow-left.png in Resources */,
+				410A6EC31B812A24009D9AE5 /* CollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41E9FE721B7E9C22001F665B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +380,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		410A6EA31B80C42E009D9AE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				410A6EBC1B80C48E009D9AE5 /* AppDelegate.swift in Sources */,
+				410A6EBD1B80C48E009D9AE5 /* ViewController.swift in Sources */,
+				410A6EC11B80C6E3009D9AE5 /* CollectionViewCell.swift in Sources */,
+				410A6EBF1B80C6BE009D9AE5 /* LGHorizontalLinearFlowLayout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41E9FE701B7E9C22001F665B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,7 +399,7 @@
 				41E9FEB21B7E9E1B001F665B /* CollectionViewCell.m in Sources */,
 				41E9FE7A1B7E9C22001F665B /* main.m in Sources */,
 				41E9FEAD1B7E9CC6001F665B /* ViewController.m in Sources */,
-				41E9FEA91B7E9C80001F665B /* RHHorizontalLinearFlowLayout.m in Sources */,
+				41E9FEA91B7E9C80001F665B /* LGHorizontalLinearFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +422,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		410A6EB21B80C42E009D9AE5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				410A6EB31B80C42E009D9AE5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		41E9FE861B7E9C22001F665B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -327,6 +441,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		410A6EB61B80C42E009D9AE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = LGLinearFlowViewSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukagabric.LGLinearFlowViewSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		410A6EB71B80C42E009D9AE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LGLinearFlowViewSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lukagabric.LGLinearFlowViewSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		41E9FE951B7E9C22001F665B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -469,6 +609,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		410A6EB81B80C42E009D9AE5 /* Build configuration list for PBXNativeTarget "LGLinearFlowViewSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				410A6EB61B80C42E009D9AE5 /* Debug */,
+				410A6EB71B80C42E009D9AE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		41E9FE6F1B7E9C22001F665B /* Build configuration list for PBXProject "LGLinearFlowView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

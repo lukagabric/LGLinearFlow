@@ -4,19 +4,22 @@
 //
 
 #import "ViewController.h"
-#import "RHHorizontalLinearFlowLayout.h"
+#import "LGHorizontalLinearFlowLayout.h"
 #import "CollectionViewCell.h"
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, nonatomic) NSArray *dataSource;
 
-@property (strong, nonatomic) RHHorizontalLinearFlowLayout *collectionViewLayout;
+@property (strong, nonatomic) LGHorizontalLinearFlowLayout *collectionViewLayout;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *previousButton;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
+@property (readonly, nonatomic) CGFloat pageWidth;
+@property (readonly, nonatomic) CGFloat contentOffset;
 
 @end
 
@@ -33,11 +36,13 @@
     [self configureButtons];
 }
 
+#pragma mark - Configuration
+
 - (void)configureCollectionView {
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil]
           forCellWithReuseIdentifier:@"CollectionViewCell"];
     
-    self.collectionViewLayout = [RHHorizontalLinearFlowLayout layoutConfiguredWithCollectionView:self.collectionView
+    self.collectionViewLayout = [LGHorizontalLinearFlowLayout layoutConfiguredWithCollectionView:self.collectionView
                                                                                         itemSize:CGSizeMake(180, 180)
                                                                               minimumLineSpacing:0];
 }
@@ -76,9 +81,8 @@
 }
 
 - (void)configureViewForPageControlValueChange {
-    CGFloat pageWidth = self.collectionViewLayout.itemSize.width + self.collectionViewLayout.minimumLineSpacing;
-    CGFloat contentOffset = self.pageControl.currentPage * pageWidth - self.collectionView.contentInset.left;
-    [self.collectionView setContentOffset:CGPointMake(contentOffset, 0) animated:YES];
+    CGFloat pageOffset = self.pageControl.currentPage * self.pageWidth - self.collectionView.contentInset.left;
+    [self.collectionView setContentOffset:CGPointMake(pageOffset, 0) animated:YES];
     
     [self configureButtons];
 }
@@ -100,10 +104,18 @@
 #pragma mark - UICollectionViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    CGFloat pageWidth = self.collectionViewLayout.itemSize.width + self.collectionViewLayout.minimumLineSpacing;
-    CGFloat contentOffset = self.collectionView.contentOffset.x + self.collectionView.contentInset.left;
-    self.pageControl.currentPage = contentOffset / pageWidth;
+    self.pageControl.currentPage = self.contentOffset / self.pageWidth;
     [self configureButtons];
+}
+
+#pragma mark - Convenience
+
+- (CGFloat)pageWidth {
+    return self.collectionViewLayout.itemSize.width + self.collectionViewLayout.minimumLineSpacing;
+}
+
+- (CGFloat)contentOffset {
+    return self.collectionView.contentOffset.x + self.collectionView.contentInset.left;
 }
 
 #pragma mark -

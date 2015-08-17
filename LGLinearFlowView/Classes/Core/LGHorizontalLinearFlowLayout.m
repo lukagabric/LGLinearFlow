@@ -3,27 +3,28 @@
 //  Copyright (c) 2015 Luka Gabric. All rights reserved.
 //
 
-#import "RHHorizontalLinearFlowLayout.h"
+#import "LGHorizontalLinearFlowLayout.h"
 
-@interface RHHorizontalLinearFlowLayout ()
+@interface LGHorizontalLinearFlowLayout ()
 
 @property (assign, nonatomic) CGSize lastCollectionViewSize;
 
 @end
 
-@implementation RHHorizontalLinearFlowLayout
+@implementation LGHorizontalLinearFlowLayout
 
 #pragma mark - Configuration
 
-+ (RHHorizontalLinearFlowLayout *)layoutConfiguredWithCollectionView:(UICollectionView *)collectionView
++ (LGHorizontalLinearFlowLayout *)layoutConfiguredWithCollectionView:(UICollectionView *)collectionView
                                                             itemSize:(CGSize)itemSize
                                                   minimumLineSpacing:(CGFloat)minimumLineSpacing {
-    RHHorizontalLinearFlowLayout *layout = [RHHorizontalLinearFlowLayout new];
+    LGHorizontalLinearFlowLayout *layout = [LGHorizontalLinearFlowLayout new];
     collectionView.collectionViewLayout = layout;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.minimumLineSpacing = minimumLineSpacing;
     layout.itemSize = itemSize;
     layout.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
+    
     return layout;
 }
 
@@ -63,7 +64,7 @@
 - (void)configureInset {
     CGFloat inset = self.collectionView.bounds.size.width/2 - self.itemSize.width/2;
     self.collectionView.contentInset = UIEdgeInsetsMake(0, inset, 0, inset);
-    self.collectionView.contentOffset = CGPointMake(-1 * inset, 0);
+    self.collectionView.contentOffset = CGPointMake(-inset, 0);
 }
 
 #pragma mark - UICollectionViewLayout (UISubclassingHooks)
@@ -93,26 +94,27 @@
     
     if ((velocity.x < 0 && offset > 0) || (velocity.x > 0 && offset < 0)) {
         CGFloat pageWidth = self.itemSize.width + self.minimumLineSpacing;
-        proposedContentOffset.x += velocity.x > 0.0 ? pageWidth : -pageWidth;
+        proposedContentOffset.x += velocity.x > 0 ? pageWidth : -pageWidth;
     }
 
     return proposedContentOffset;
 }
 
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)oldBounds {
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
     return YES;
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     if (!self.scaleItems) return [super layoutAttributesForElementsInRect:rect];
     
-    CGRect visibleRect = (CGRect){self.collectionView.contentOffset, self.collectionView.bounds.size};
-    
     NSArray *attributesArray = [[NSArray alloc] initWithArray:[super layoutAttributesForElementsInRect:rect]
                                                     copyItems:YES];
+
+    CGRect visibleRect = (CGRect){self.collectionView.contentOffset, self.collectionView.bounds.size};
+    CGFloat visibleCenterX = CGRectGetMidX(visibleRect);
     
     [attributesArray enumerateObjectsUsingBlock:^(UICollectionViewLayoutAttributes *attributes, NSUInteger idx, BOOL *stop) {
-        CGFloat distanceFromCenter = CGRectGetMidX(visibleRect) - attributes.center.x;
+        CGFloat distanceFromCenter = visibleCenterX - attributes.center.x;
         CGFloat absDistanceFromCenter = MIN(ABS(distanceFromCenter), self.scalingOffset);
         CGFloat scale = absDistanceFromCenter * (self.minimumScaleFactor - 1) / self.scalingOffset + 1;
         attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1);
