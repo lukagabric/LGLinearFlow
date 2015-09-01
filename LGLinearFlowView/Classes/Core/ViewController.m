@@ -50,7 +50,7 @@
 - (void)configureDataSource {
     NSMutableArray *datasource = [NSMutableArray new];
     for (NSUInteger i = 0; i < 10; i++) {
-        [datasource addObject:[NSString stringWithFormat:@"Page %ld", i]];
+        [datasource addObject:[NSString stringWithFormat:@"Page %@", @(i)]];
     }
     self.dataSource = datasource;
 }

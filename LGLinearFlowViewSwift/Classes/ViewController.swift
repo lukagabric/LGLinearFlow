@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     
     private func configureCollectionView() {
         self.collectionView.registerNib(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
-        self.collectionViewLayout = LGHorizontalLinearFlowLayout.configureLayout(self.collectionView, itemSize: CGSizeMake(180, 180), minimumLineSpacing: 0)
+        self.collectionViewLayout = LGHorizontalLinearFlowLayout.configureLayout(collectionView: self.collectionView, itemSize: CGSizeMake(180, 180), minimumLineSpacing: 0)
     }
     
     private func configurePageControl() {

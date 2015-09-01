@@ -17,7 +17,7 @@ public class LGHorizontalLinearFlowLayout: UICollectionViewFlowLayout {
     public var scaleItems: Bool = true
 
     
-    static func configureLayout(collectionView: UICollectionView, itemSize: CGSize, minimumLineSpacing: CGFloat) -> LGHorizontalLinearFlowLayout {
+    static func configureLayout(collectionView collectionView: UICollectionView, itemSize: CGSize, minimumLineSpacing: CGFloat) -> LGHorizontalLinearFlowLayout {
         let layout = LGHorizontalLinearFlowLayout()
         layout.scrollDirection = .Horizontal
         layout.minimumLineSpacing = minimumLineSpacing
