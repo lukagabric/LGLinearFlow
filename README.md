@@ -1,7 +1,7 @@
 # LGLinearFlow
 *LGHorizontalLinearFlowLayout* - iOS Collection View flow layout with zoom effect and variable page size
 
-Objective C: LGLinearFlowView/Classes/Core/LGHorizontalLinearFlowLayout{.h,.m}
+Objective-C: LGLinearFlowView/Classes/Core/LGHorizontalLinearFlowLayout{.h,.m}
 
 Swift 2.0: LGLinearFlowViewSwift/Classes/LGHorizontalLinearFlowLayout.swift
 
