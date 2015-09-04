@@ -67,23 +67,21 @@
 #pragma mark - Actions
 
 - (IBAction)pageControlValueChanged:(id)sender {
-    [self configureViewForPageControlValueChange];
+    [self scrollToPage:self.pageControl.currentPage animated:YES];
 }
 
 - (IBAction)nextButtonAction:(id)sender {
-    self.pageControl.currentPage += 1;
-    [self configureViewForPageControlValueChange];
+    [self scrollToPage:self.pageControl.currentPage + 1 animated:YES];
 }
 
 - (IBAction)previousButtonAction:(id)sender {
-    self.pageControl.currentPage -= 1;
-    [self configureViewForPageControlValueChange];
+    [self scrollToPage:self.pageControl.currentPage - 1 animated:YES];
 }
 
-- (void)configureViewForPageControlValueChange {
-    CGFloat pageOffset = self.pageControl.currentPage * self.pageWidth - self.collectionView.contentInset.left;
-    [self.collectionView setContentOffset:CGPointMake(pageOffset, 0) animated:YES];
-    
+- (void)scrollToPage:(NSUInteger)page animated:(BOOL)animated {
+    CGFloat pageOffset = page * self.pageWidth - self.collectionView.contentInset.left;
+    [self.collectionView setContentOffset:CGPointMake(pageOffset, 0) animated:animated];
+    self.pageControl.currentPage = page;
     [self configureButtons];
 }
 
@@ -99,6 +97,19 @@
                                                                     forIndexPath:indexPath];
     cell.pageLabel.text = self.dataSource[indexPath.row];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (collectionView.isDragging || collectionView.isDecelerating || collectionView.isTracking) return;
+
+    NSUInteger selectedPage = indexPath.row;
+    
+    if (selectedPage == self.pageControl.currentPage) {
+        NSLog(@"Did select center item");
+    }
+    else {
+        [self scrollToPage:selectedPage animated:YES];
+    }
 }
 
 #pragma mark - UICollectionViewDelegate
