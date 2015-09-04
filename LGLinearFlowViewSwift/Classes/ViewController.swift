@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet private var previousButton: UIButton!
     @IBOutlet private var pageControl: UIPageControl!
     
+    private var animationsCount = 0
+    
     private var pageWidth: CGFloat {
         return self.collectionViewLayout.itemSize.width + self.collectionViewLayout.minimumLineSpacing
     }
@@ -77,6 +79,8 @@ class ViewController: UIViewController {
     }
 
     private func scrollToPage(page: Int, animated: Bool) {
+        self.collectionView.userInteractionEnabled = false
+        self.animationsCount++
         let pageOffset = CGFloat(page) * self.pageWidth - self.collectionView.contentInset.left
         self.collectionView.setContentOffset(CGPointMake(pageOffset, 0), animated: true)
         self.pageControl.currentPage = page
@@ -114,6 +118,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         self.pageControl.currentPage = Int(self.contentOffset / self.pageWidth)
         self.configureButtons()
+    }
+    
+    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+        if --self.animationsCount == 0 {
+            self.collectionView.userInteractionEnabled = true
+        }
     }
     
 }
