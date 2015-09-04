@@ -65,22 +65,21 @@ class ViewController: UIViewController {
     // MARK: Actions
     
     @IBAction private func pageControlValueChanged(sender: AnyObject) {
-        self.configureViewForPageControlValueChange()
+        self.scrollToPage(self.pageControl.currentPage, animated: true)
     }
     
     @IBAction private func nextButtonAction(sender: AnyObject) {
-        self.pageControl.currentPage += 1;
-        self.configureViewForPageControlValueChange()
+        self.scrollToPage(self.pageControl.currentPage + 1, animated: true)
     }
 
     @IBAction private func previousButtonAction(sender: AnyObject) {
-        self.pageControl.currentPage -= 1;
-        self.configureViewForPageControlValueChange()
+        self.scrollToPage(self.pageControl.currentPage - 1, animated: true)
     }
 
-    private func configureViewForPageControlValueChange() {
-        let pageOffset = self.pageWidth * CGFloat(self.pageControl.currentPage) - self.collectionView.contentInset.left
-        self.collectionView .setContentOffset(CGPointMake(pageOffset, 0), animated: true)
+    private func scrollToPage(page: Int, animated: Bool) {
+        let pageOffset = CGFloat(page) * self.pageWidth - self.collectionView.contentInset.left
+        self.collectionView.setContentOffset(CGPointMake(pageOffset, 0), animated: true)
+        self.pageControl.currentPage = page
         self.configureButtons()
     }
 }
@@ -95,6 +94,21 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
         collectionViewCell.pageLabel.text = self.dataSource[indexPath.row]
         return collectionViewCell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if collectionView.dragging || collectionView.decelerating || collectionView.tracking {
+            return
+        }
+        
+        let selectedPage = indexPath.row
+        
+        if selectedPage == self.pageControl.currentPage {
+            NSLog("Did select center item")
+        }
+        else {
+            self.scrollToPage(selectedPage, animated: true)
+        }
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
