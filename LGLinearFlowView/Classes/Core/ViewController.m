@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *previousButton;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
-@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRecognizer;
+@property (strong, nonatomic) UILongPressGestureRecognizer *longPressRecognizer;
 
 @property (readonly, nonatomic) CGFloat pageWidth;
 @property (readonly, nonatomic) CGFloat contentOffset;
@@ -41,6 +41,9 @@
 #pragma mark - Configuration
 
 - (void)configureCollectionView {
+    self.longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress)];
+    [self.collectionView addGestureRecognizer:self.longPressRecognizer];
+    
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil]
           forCellWithReuseIdentifier:@"CollectionViewCell"];
     
@@ -68,7 +71,7 @@
 
 #pragma mark - Actions
 
-- (IBAction)longPress {
+- (void)longPress {
     if (self.longPressRecognizer.state != UIGestureRecognizerStateEnded ||
         self.collectionView.dragging ||
         self.collectionView.decelerating ||

@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var previousButton: UIButton!
     @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var longPressRecognizer: UILongPressGestureRecognizer!
+    
+    var longPressRecognizer: UILongPressGestureRecognizer!
     
     var pageWidth: CGFloat {
         return self.collectionViewLayout.itemSize.width + self.collectionViewLayout.minimumLineSpacing
@@ -50,6 +51,9 @@ class ViewController: UIViewController {
     }
     
     func configureCollectionView() {
+        self.longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress")
+        self.collectionView.addGestureRecognizer(self.longPressRecognizer)
+        
         self.collectionView.registerNib(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
         self.collectionViewLayout = LGHorizontalLinearFlowLayout.configureLayout(collectionView: self.collectionView, itemSize: CGSizeMake(180, 180), minimumLineSpacing: 0)
     }
@@ -65,7 +69,7 @@ class ViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func longPress() {
+    func longPress() {
         if self.longPressRecognizer.state != .Ended ||
             self.collectionView.dragging ||
             self.collectionView.decelerating ||
