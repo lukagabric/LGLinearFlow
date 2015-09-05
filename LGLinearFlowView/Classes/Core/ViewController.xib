@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
                 <outlet property="collectionView" destination="war-7u-Akq" id="ilE-zt-1BV"/>
+                <outlet property="longPressRecognizer" destination="5p6-Ln-Weu" id="rxj-iW-Tw9"/>
                 <outlet property="nextButton" destination="5Cg-gI-Aht" id="2eM-8c-nlI"/>
                 <outlet property="pageControl" destination="RsX-wT-abX" id="WKG-j4-9lx"/>
                 <outlet property="previousButton" destination="cEG-ir-cbx" id="H67-MN-MGn"/>
@@ -34,6 +35,7 @@
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="07K-uC-mWb"/>
                                 <outlet property="delegate" destination="-1" id="IBd-Vl-9NS"/>
+                                <outletCollection property="gestureRecognizers" destination="5p6-Ln-Weu" appends="YES" id="aPf-g5-TiN"/>
                             </connections>
                         </collectionView>
                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="RsX-wT-abX">
@@ -93,6 +95,12 @@
             </constraints>
             <point key="canvasLocation" x="473" y="301"/>
         </view>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="5p6-Ln-Weu">
+            <connections>
+                <action selector="longPress" destination="-1" id="XPv-yW-MK8"/>
+                <outlet property="delegate" destination="-1" id="ay9-1G-uEk"/>
+            </connections>
+        </pongPressGestureRecognizer>
     </objects>
     <resources>
         <image name="arrow-left.png" width="60" height="60"/>
