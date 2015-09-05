@@ -9,5 +9,5 @@
 import UIKit
 
 public class CollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var pageLabel: UILabel!
+    @IBOutlet public weak var pageLabel: UILabel!
 }

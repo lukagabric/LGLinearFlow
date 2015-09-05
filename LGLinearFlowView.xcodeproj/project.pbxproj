@@ -616,7 +616,6 @@
 				410A6EB71B80C42E009D9AE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		41E9FE6F1B7E9C22001F665B /* Build configuration list for PBXProject "LGLinearFlowView" */ = {
 			isa = XCConfigurationList;
