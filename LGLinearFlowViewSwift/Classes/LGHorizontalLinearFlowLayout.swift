@@ -10,11 +10,11 @@ import UIKit
 
 public class LGHorizontalLinearFlowLayout: UICollectionViewFlowLayout {
     
-    private var lastCollectionViewSize: CGSize = CGSizeZero
+    var lastCollectionViewSize: CGSize = CGSizeZero
     
-    public var scalingOffset: CGFloat = 200 //for offsets >= scalingOffset scale factor is minimumScaleFactor
-    public var minimumScaleFactor: CGFloat = 0.7
-    public var scaleItems: Bool = true
+    var scalingOffset: CGFloat = 200 //for offsets >= scalingOffset scale factor is minimumScaleFactor
+    var minimumScaleFactor: CGFloat = 0.7
+    var scaleItems: Bool = true
 
     
     static func configureLayout(collectionView collectionView: UICollectionView, itemSize: CGSize, minimumLineSpacing: CGFloat) -> LGHorizontalLinearFlowLayout {
@@ -32,9 +32,7 @@ public class LGHorizontalLinearFlowLayout: UICollectionViewFlowLayout {
     override public func invalidateLayoutWithContext(context: UICollectionViewLayoutInvalidationContext) {
         super.invalidateLayoutWithContext(context)
 
-        if self.collectionView == nil {
-            return
-        }
+        if self.collectionView == nil { return }
         
         let currentCollectionViewSize = self.collectionView!.bounds.size
         
@@ -44,10 +42,8 @@ public class LGHorizontalLinearFlowLayout: UICollectionViewFlowLayout {
         }
     }
     
-    private func configureInset() -> Void {
-        if self.collectionView == nil {
-            return
-        }
+    func configureInset() -> Void {
+        if self.collectionView == nil { return }
 
         let inset = self.collectionView!.bounds.size.width / 2 - self.itemSize.width / 2
         self.collectionView!.contentInset = UIEdgeInsetsMake(0, inset, 0, inset)
@@ -113,9 +109,7 @@ public class LGHorizontalLinearFlowLayout: UICollectionViewFlowLayout {
         
         let superAttributes = super.layoutAttributesForElementsInRect(rect)
         
-        if superAttributes == nil {
-            return nil
-        }
+        if superAttributes == nil { return nil }
         
         let contentOffset = self.collectionView!.contentOffset
         let size = self.collectionView!.bounds.size

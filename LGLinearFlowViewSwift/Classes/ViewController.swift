@@ -12,21 +12,20 @@ class ViewController: UIViewController {
     
     // MARK: Vars
     
-    private var collectionViewLayout: LGHorizontalLinearFlowLayout!
-    private var dataSource: Array<String>!
+    var collectionViewLayout: LGHorizontalLinearFlowLayout!
+    var dataSource: Array<String>!
     
-    @IBOutlet private var collectionView: UICollectionView!
-    @IBOutlet private var nextButton: UIButton!
-    @IBOutlet private var previousButton: UIButton!
-    @IBOutlet private var pageControl: UIPageControl!
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var nextButton: UIButton!
+    @IBOutlet var previousButton: UIButton!
+    @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var longPressRecognizer: UILongPressGestureRecognizer!
     
-    private var animationsCount = 0
-    
-    private var pageWidth: CGFloat {
+    var pageWidth: CGFloat {
         return self.collectionViewLayout.itemSize.width + self.collectionViewLayout.minimumLineSpacing
     }
     
-    private var contentOffset: CGFloat {
+    var contentOffset: CGFloat {
         return self.collectionView.contentOffset.x + self.collectionView.contentInset.left
     }
 
@@ -43,44 +42,53 @@ class ViewController: UIViewController {
     
     // MARK: Configuration
     
-    private func configureDataSource() {
+    func configureDataSource() {
         self.dataSource = Array()
         for index in 1...10 {
             self.dataSource.append("Page \(index)")
         }
     }
     
-    private func configureCollectionView() {
+    func configureCollectionView() {
         self.collectionView.registerNib(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
         self.collectionViewLayout = LGHorizontalLinearFlowLayout.configureLayout(collectionView: self.collectionView, itemSize: CGSizeMake(180, 180), minimumLineSpacing: 0)
     }
     
-    private func configurePageControl() {
+    func configurePageControl() {
         self.pageControl.numberOfPages = self.dataSource.count
     }
     
-    private func configureButtons() {
+    func configureButtons() {
         self.nextButton.enabled = self.dataSource.count > 0 && self.pageControl.currentPage < self.dataSource.count - 1
         self.previousButton.enabled = self.pageControl.currentPage > 0
     }
     
     // MARK: Actions
     
-    @IBAction private func pageControlValueChanged(sender: AnyObject) {
+    @IBAction func longPress() {
+        if self.longPressRecognizer.state != .Ended ||
+            collectionView.dragging ||
+            collectionView.decelerating ||
+            collectionView.tracking {
+                return
+        }
+        
         self.scrollToPage(self.pageControl.currentPage, animated: true)
     }
     
-    @IBAction private func nextButtonAction(sender: AnyObject) {
+    @IBAction func pageControlValueChanged(sender: AnyObject) {
+        self.scrollToPage(self.pageControl.currentPage, animated: true)
+    }
+    
+    @IBAction func nextButtonAction(sender: AnyObject) {
         self.scrollToPage(self.pageControl.currentPage + 1, animated: true)
     }
 
-    @IBAction private func previousButtonAction(sender: AnyObject) {
+    @IBAction func previousButtonAction(sender: AnyObject) {
         self.scrollToPage(self.pageControl.currentPage - 1, animated: true)
     }
 
-    private func scrollToPage(page: Int, animated: Bool) {
-        self.collectionView.userInteractionEnabled = false
-        self.animationsCount++
+    func scrollToPage(page: Int, animated: Bool) {
         let pageOffset = CGFloat(page) * self.pageWidth - self.collectionView.contentInset.left
         self.collectionView.setContentOffset(CGPointMake(pageOffset, 0), animated: true)
         self.pageControl.currentPage = page
@@ -101,9 +109,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if collectionView.dragging || collectionView.decelerating || collectionView.tracking {
-            return
-        }
+        if collectionView.dragging || collectionView.decelerating || collectionView.tracking { return }
         
         let selectedPage = indexPath.row
         
@@ -118,12 +124,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         self.pageControl.currentPage = Int(self.contentOffset / self.pageWidth)
         self.configureButtons()
-    }
-    
-    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
-        if --self.animationsCount == 0 {
-            self.collectionView.userInteractionEnabled = true
-        }
     }
     
 }
