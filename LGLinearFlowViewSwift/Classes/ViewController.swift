@@ -67,9 +67,9 @@ class ViewController: UIViewController {
     
     @IBAction func longPress() {
         if self.longPressRecognizer.state != .Ended ||
-            collectionView.dragging ||
-            collectionView.decelerating ||
-            collectionView.tracking {
+            self.collectionView.dragging ||
+            self.collectionView.decelerating ||
+            self.collectionView.tracking {
                 return
         }
         

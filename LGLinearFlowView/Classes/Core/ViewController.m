@@ -18,10 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *previousButton;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
+@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRecognizer;
+
 @property (readonly, nonatomic) CGFloat pageWidth;
 @property (readonly, nonatomic) CGFloat contentOffset;
-
-@property (assign, nonatomic) NSUInteger animationsCount;
 
 @end
 
@@ -68,6 +68,17 @@
 
 #pragma mark - Actions
 
+- (IBAction)longPress {
+    if (self.longPressRecognizer.state != UIGestureRecognizerStateEnded ||
+        self.collectionView.dragging ||
+        self.collectionView.decelerating ||
+        self.collectionView.tracking) {
+        return;
+    }
+    
+    [self scrollToPage:self.pageControl.currentPage animated:YES];
+}
+
 - (IBAction)pageControlValueChanged:(id)sender {
     [self scrollToPage:self.pageControl.currentPage animated:YES];
 }
@@ -81,8 +92,6 @@
 }
 
 - (void)scrollToPage:(NSUInteger)page animated:(BOOL)animated {
-    self.collectionView.userInteractionEnabled = NO;
-    self.animationsCount++;
     CGFloat pageOffset = page * self.pageWidth - self.collectionView.contentInset.left;
     [self.collectionView setContentOffset:CGPointMake(pageOffset, 0) animated:animated];
     self.pageControl.currentPage = page;
@@ -117,11 +126,6 @@
 }
 
 #pragma mark - UICollectionViewDelegate
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    if (--self.animationsCount > 0) return;
-    self.collectionView.userInteractionEnabled = YES;
-}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     self.pageControl.currentPage = self.contentOffset / self.pageWidth;

@@ -34,6 +34,7 @@
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="ZMi-ga-f3p"/>
                                 <outlet property="delegate" destination="-1" id="tHi-aA-sgH"/>
+                                <outletCollection property="gestureRecognizers" destination="wa2-xj-ZQD" appends="YES" id="KAv-HG-q76"/>
                             </connections>
                         </collectionView>
                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="RsX-wT-abX">
@@ -83,9 +84,6 @@
                         <constraint firstItem="cEG-ir-cbx" firstAttribute="leading" secondItem="eT6-E5-vUh" secondAttribute="leading" id="rdh-gL-GPt"/>
                         <constraint firstAttribute="trailing" secondItem="war-7u-Akq" secondAttribute="trailing" id="tZx-Ck-J3b"/>
                     </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="wa2-xj-ZQD" appends="YES" id="ZdB-8z-8c7"/>
-                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.79874246162280704" alpha="1" colorSpace="calibratedWhite"/>
